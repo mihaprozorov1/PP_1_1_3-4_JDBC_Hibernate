@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.SQLNonTransientConnectionException;
+import java.sql.SQLOutput;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -57,6 +58,7 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
             preparedStatement.setString(2, lastName);
             preparedStatement.setByte(3, age);
             preparedStatement.executeUpdate();
+            System.out.println("User с именем — " + name + "добавлен в базу данных");
             System.out.println("Connection OK in - saveUser(3)");
 
         } catch (SQLNonTransientConnectionException e) {
