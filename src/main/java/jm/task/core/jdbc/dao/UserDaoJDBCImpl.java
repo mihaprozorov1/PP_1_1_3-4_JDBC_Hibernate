@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLNonTransientConnectionException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -68,7 +69,7 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
     }
 
     // 4) Добавление User в таблицу
-    public void saveUser(String name, String lastName, byte age) {
+    public void saveUser(String name, String lastName, byte age) throws SQLException {
         PreparedStatement preparedStatement = null;
         String sql = "INSERT INTO users (Name, LastName, Age) VALUES (?, ?, ?)";
         try {
@@ -78,7 +79,7 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
             preparedStatement.setByte(3, age);
             preparedStatement.executeUpdate();
 
-        } catch (SQLException e) {
+        } catch (SQLNonTransientConnectionException e) {
             e.printStackTrace();
         } finally {
             try {

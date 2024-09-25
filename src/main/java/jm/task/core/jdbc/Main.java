@@ -8,7 +8,7 @@ public class Main {
         // реализуйте алгоритм здесь
         UserServiceImpl userService = new UserServiceImpl();
 
-        userService.dropUsersTable();
+//        userService.dropUsersTable();
         userService.createUsersTable(); //1
 
         userService.saveUser("Name1", "LastName1", (byte) 20);//4
