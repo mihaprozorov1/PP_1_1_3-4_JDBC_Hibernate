@@ -8,7 +8,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.SQLNonTransientConnectionException;
-import java.sql.SQLOutput;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
